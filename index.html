@@ -1,34 +1,658 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ahmet Ribat & Zehra Nur</title>
+  <meta name="description" content="Ahmet Ribat & Zehra Nur düğün ve kına davet sitesi" />
+
   <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #fff5f7;
+    :root {
+      --bg: #fff9fb;
+      --bg-soft: #fff3f7;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #2d2430;
+      --muted: #7a6a75;
+      --primary: #c97b9a;
+      --primary-dark: #a85d7b;
+      --line: rgba(201, 123, 154, 0.18);
+      --shadow: 0 10px 30px rgba(83, 47, 65, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --maxw: 980px;
     }
-    h1 { margin-top: 50px; }
-    .box { margin: 30px; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #ffe3ee 0%, transparent 32%),
+        radial-gradient(circle at top right, #fff1d9 0%, transparent 22%),
+        linear-gradient(180deg, #fffafc 0%, #fff6f9 52%, #fffdf8 100%);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 28px, var(--maxw));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 28px 0 36px;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(16px);
+      opacity: 0.25;
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      background: #ffdbe8;
+      top: -80px;
+      left: -90px;
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      background: #ffe7c8;
+      right: -70px;
+      bottom: 50px;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.76));
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: relative;
+      height: 42svh;
+      min-height: 300px;
+      max-height: 520px;
+      background: #f4dfe8 center center / cover no-repeat;
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(35, 22, 29, 0.08) 0%,
+        rgba(35, 22, 29, 0.18) 48%,
+        rgba(255,255,255,0.06) 100%
+      );
+    }
+
+    .hero-content {
+      padding: 28px 18px 26px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--primary-dark);
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 8vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: clamp(15px, 3.8vw, 18px);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 18px rgba(201, 123, 154, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary-dark);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: #fff7fa;
+      transform: translateY(-1px);
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 0 0 18px;
+      font-size: clamp(24px, 6vw, 34px);
+      letter-spacing: -0.02em;
+    }
+
+    .section-note {
+      text-align: center;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .countdown-card,
+    .info-card,
+    .gallery-card,
+    .note-card {
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .countdown-card {
+      padding: 22px 14px;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .count-item {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 8px;
+      text-align: center;
+    }
+
+    .count-number {
+      display: block;
+      font-size: clamp(26px, 7vw, 40px);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .count-label {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .events-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    .info-card {
+      padding: 20px;
+    }
+
+    .event-badge {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #fff4f8;
+      color: var(--primary-dark);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .event-title {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    .event-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--text);
+    }
+
+    .event-list li {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(201, 123, 154, 0.12);
+      border-radius: 14px;
+      padding: 12px 14px;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .maps-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .gallery-card {
+      padding: 16px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1.08;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f3e1e8;
+      position: relative;
+      border: 1px solid rgba(201, 123, 154, 0.14);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 16px;
+      line-height: 1.5;
+      font-size: 14px;
+      background:
+        linear-gradient(135deg, #fff4f8 0%, #fffaf2 100%);
+    }
+
+    .note-card {
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .note-card p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .footer {
+      padding: 18px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (min-width: 700px) {
+      .hero-content {
+        padding: 34px 30px 30px;
+      }
+
+      .countdown-card {
+        padding: 28px 22px;
+      }
+
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .gallery-item {
+        aspect-ratio: 1 / 1.2;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .countdown-grid {
+        gap: 8px;
+      }
+
+      .count-item {
+        padding: 14px 6px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
-<h1>Ahmet Ribat & Zehra Nur 💍</h1>
-<p>Sizi en mutlu günümüze bekliyoruz!</p>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
 
-<div class="box">
-  <h2>Kına</h2>
-  <p>25 Ağustos 2026 - 19:00</p>
-</div>
+        <!-- DOLDUR: Buraya kapak görselini ekle -->
+        <!-- style içindeki url('images/kapak.jpg') kısmını kendi dosya yolunla değiştir -->
+        <div class="hero-image" style="background-image: url('images/kapak.jpg');"></div>
 
-<div class="box">
-  <h2>Düğün</h2>
-  <p>29 Ağustos 2026 - 16:20</p>
-</div>
+        <div class="hero-content">
+          <div class="eyebrow">Düğün & Kına Daveti</div>
 
-<p>📍 Konum: <a href="#">Haritayı aç</a></p>
+          <h1>Ahmet Ribat <br>&amp; Zehra Nur</h1>
 
+          <!-- DOLDUR: Kısa hoş mesaj -->
+          <p class="hero-subtitle">
+            Hayatımızın en güzel günlerinde sevincimizi bizimle paylaşmanızdan mutluluk duyarız.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#etkinlikler" class="btn btn-primary">Tarihleri Gör</a>
+            <a href="#galeri" class="btn btn-secondary">Fotoğraflar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="geri-sayim">
+      <div class="container">
+        <div class="countdown-card">
+          <h2 class="section-title">Düğüne Kalan Süre</h2>
+
+          <!-- DOLDUR: İstersen burayı değiştir -->
+          <p class="section-note">
+            Bu güzel güne birlikte sayıyoruz.
+          </p>
+
+          <div class="countdown-grid" id="countdown">
+            <div class="count-item">
+              <span class="count-number" id="days">00</span>
+              <span class="count-label">Gün</span>
+            </div>
+            <div class="count-item">
+              <span class="count-number" id="hours">00</span>
+              <span class="count-label">Saat</span>
+            </div>
+            <div class="count-item">
+              <span class="count-number" id="minutes">00</span>
+              <span class="count-label">Dakika</span>
+            </div>
+            <div class="count-item">
+              <span class="count-number" id="seconds">00</span>
+              <span class="count-label">Saniye</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="etkinlikler">
+      <div class="container">
+        <h2 class="section-title">Etkinlik Bilgileri</h2>
+        <p class="section-note">
+          Aşağıda kına ve düğün detaylarını bulabilirsiniz.
+        </p>
+
+        <div class="events-grid">
+          <article class="info-card">
+            <div class="event-badge">Kına Gecesi</div>
+            <h3 class="event-title">Kına</h3>
+
+            <ul class="event-list">
+              <li>
+                <span class="label">Tarih</span>
+                25 Ağustos 2026
+              </li>
+              <li>
+                <span class="label">Saat</span>
+                19:00
+              </li>
+              <li>
+                <span class="label">Mekan</span>
+                <!-- DOLDUR -->
+                Kına mekanı adı
+              </li>
+              <li>
+                <span class="label">Adres</span>
+                <!-- DOLDUR -->
+                Açık adres buraya gelecek
+              </li>
+            </ul>
+
+            <div class="maps-row">
+              <!-- DOLDUR: Google Maps linkini yapıştır -->
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Haritada Aç</a>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="event-badge">Düğün Töreni</div>
+            <h3 class="event-title">Düğün</h3>
+
+            <ul class="event-list">
+              <li>
+                <span class="label">Tarih</span>
+                29 Ağustos 2026
+              </li>
+              <li>
+                <span class="label">Saat</span>
+                16:20
+              </li>
+              <li>
+                <span class="label">Mekan</span>
+                <!-- DOLDUR -->
+                Düğün mekanı adı
+              </li>
+              <li>
+                <span class="label">Adres</span>
+                <!-- DOLDUR -->
+                Açık adres buraya gelecek
+              </li>
+            </ul>
+
+            <div class="maps-row">
+              <!-- DOLDUR: Google Maps linkini yapıştır -->
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Haritada Aç</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeri">
+      <div class="container">
+        <h2 class="section-title">Bizden Kareler</h2>
+        <p class="section-note">
+          Birkaç güzel anı burada paylaşacağız.
+        </p>
+
+        <div class="gallery-card">
+          <div class="gallery-grid">
+
+            <!-- DOLDUR: Foto yüklemek için images/foto1.jpg vs. koy -->
+            <div class="gallery-item">
+              <img src="images/foto1.jpg" alt="Ahmet Ribat ve Zehra Nur fotoğraf 1">
+            </div>
+
+            <div class="gallery-item">
+              <img src="images/foto2.jpg" alt="Ahmet Ribat ve Zehra Nur fotoğraf 2">
+            </div>
+
+            <div class="gallery-item">
+              <img src="images/foto3.jpg" alt="Ahmet Ribat ve Zehra Nur fotoğraf 3">
+            </div>
+
+            <div class="gallery-item">
+              <img src="images/foto4.jpg" alt="Ahmet Ribat ve Zehra Nur fotoğraf 4">
+            </div>
+
+            <!-- Foto eklemeden önce görüntü bozulmasın diye placeholder örneği -->
+            <!--
+            <div class="gallery-item">
+              <div class="gallery-placeholder">
+                Buraya fotoğraf ekleyebilirsin<br>
+                örn: images/foto5.jpg
+              </div>
+            </div>
+            -->
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="not">
+      <div class="container">
+        <div class="note-card">
+          <!-- DOLDUR: İstersen komik/romantik kısa not -->
+          <p>
+            Bu özel günümüzde yanımızda olmanız bizim için en güzel hediye olacaktır.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Ahmet Ribat &amp; Zehra Nur 💍
+  </footer>
+
+  <script>
+    // DOLDUR: Geri sayım hedefi
+    // Format: YIL-AY-GUNTHH:MM:SS
+    // Düğün tarihi baz alınmıştır
+    const weddingDate = new Date("2026-08-29T16:20:00").getTime();
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysEl.textContent = String(days).padStart(2, "0");
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minutesEl.textContent = String(minutes).padStart(2, "0");
+      secondsEl.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
