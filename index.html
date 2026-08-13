@@ -1,34 +1,562 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Ahmet Ribat & Zehra Nur</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #fff5f7;
-    }
-    h1 { margin-top: 50px; }
-    .box { margin: 30px; }
-  </style>
-</head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>Ahmet Ribat & Zehra Nur 💍</h1>
-<p>Sizi en mutlu günümüze bekliyoruz!</p>
+    <title>Zehra & Ribat | Düğün Davetiyesi</title>
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zehra & Ribat | Düğün Davetiyesi</title>
+        <meta name="description" content="Zehra ve Ribat'ın düğün davetiyesi, nikah ve düğün konum bilgileri.">
 
-<div class="box">
-  <h2>Kına</h2>
-  <p>25 Ağustos 2026 - 19:00</p>
-</div>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-<div class="box">
-  <h2>Düğün</h2>
-  <p>29 Ağustos 2026 - 16:20</p>
-</div>
+            html {
+                scroll-behavior: smooth;
+            }
 
-<p>📍 Konum: <a href="#">Haritayı aç</a></p>
+            body {
+                font-family: Georgia, "Times New Roman", serif;
+                background: radial-gradient(circle at top, #ffffff 0%, #f7f3ed 45%, #eee8df 100%);
+                color: #26221f;
+                line-height: 1.6;
+            }
 
-</body>
+            /* -------------------------
+                 HERO
+            ------------------------- */
+
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 45px 18px 60px;
+            }
+
+            .names {
+                text-align: center;
+                margin-bottom: 28px;
+            }
+
+            .names .small {
+                display: block;
+                font-size: 0.85rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: #887b70;
+                margin-bottom: 10px;
+            }
+
+            .names h1 {
+                font-size: clamp(2.6rem, 8vw, 5rem);
+                font-weight: 400;
+                font-style: italic;
+                line-height: 1;
+            }
+
+            .names p {
+                margin-top: 16px;
+                color: #766b63;
+                font-size: 1rem;
+            }
+
+            /* -------------------------
+                 DAVETİYE
+            ------------------------- */
+
+            .invitation-wrapper {
+                width: 100%;
+                max-width: 720px;
+                position: relative;
+            }
+
+            .invitation {
+                width: 100%;
+                display: block;
+                border-radius: 5px;
+                box-shadow: 0 20px 60px rgba(41, 33, 27, 0.18), 0 4px 15px rgba(41, 33, 27, 0.08);
+            }
+
+            .scroll-hint {
+                margin-top: 35px;
+                color: #8d8279;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .scroll-hint span {
+                display: block;
+                font-size: 1.5rem;
+                margin-top: 7px;
+                animation: bounce 2s infinite;
+            }
+
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0);
+                }
+                40% {
+                    transform: translateY(8px);
+                }
+                60% {
+                    transform: translateY(4px);
+                }
+            }
+
+            /* -------------------------
+                 MAIN
+            ------------------------- */
+
+            main {
+                width: min(1100px, calc(100% - 32px));
+                margin: 0 auto;
+                padding-bottom: 100px;
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+
+            .section-title .eyebrow {
+                color: #998b80;
+                font-size: 0.8rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+            }
+
+            .section-title h2 {
+                margin-top: 8px;
+                font-size: clamp(2rem, 5vw, 3.3rem);
+                font-weight: 400;
+            }
+
+            .section-title::after {
+                content: "♡";
+                display: block;
+                color: #9a8d82;
+                font-size: 1.5rem;
+                margin-top: 12px;
+            }
+
+            /* -------------------------
+                 EVENT CARDS
+            ------------------------- */
+
+            .events {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 30px;
+            }
+
+            .event-card {
+                background: rgba(255, 255, 255, 0.72);
+                border: 1px solid rgba(119, 104, 92, 0.17);
+                border-radius: 22px;
+                overflow: hidden;
+                box-shadow: 0 12px 35px rgba(55, 45, 37, 0.08);
+                backdrop-filter: blur(8px);
+            }
+
+            .event-info {
+                padding: 38px 35px 30px;
+                text-align: center;
+            }
+
+            .event-type {
+                display: inline-block;
+                color: #8b7b70;
+                font-size: 0.8rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+            }
+
+            .event-info h3 {
+                font-size: 2.2rem;
+                font-weight: 400;
+                margin-bottom: 22px;
+            }
+
+            .event-date {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            .event-time {
+                display: inline-block;
+                margin-top: 7px;
+                font-size: 2rem;
+            }
+
+            .separator {
+                width: 45px;
+                height: 1px;
+                background: #c6b8ad;
+                margin: 25px auto;
+            }
+
+            .venue {
+                font-size: 1.06rem;
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+
+            .address {
+                color: #756b64;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 0.92rem;
+                max-width: 380px;
+                margin: auto;
+            }
+
+            /* -------------------------
+                 MAP
+            ------------------------- */
+
+            .map {
+                width: 100%;
+                height: 310px;
+                border: 0;
+                display: block;
+                filter: grayscale(30%);
+            }
+
+            .map-actions {
+                padding: 18px;
+                text-align: center;
+                background: rgba(249, 246, 241, 0.9);
+            }
+
+            .map-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                min-width: 190px;
+                padding: 13px 22px;
+                color: white;
+                background: #2e2925;
+                border-radius: 100px;
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 0.92rem;
+                transition: transform 0.2s ease, background 0.2s ease;
+            }
+
+            .map-button:hover {
+                background: #514841;
+                transform: translateY(-2px);
+            }
+
+            /* -------------------------
+                 FOOTER
+            ------------------------- */
+
+            footer {
+                text-align: center;
+                padding: 20px 20px 60px;
+                color: #8b8179;
+            }
+
+            footer .heart {
+                display: block;
+                font-size: 1.7rem;
+                margin-bottom: 10px;
+            }
+
+            footer strong {
+                color: #39322d;
+                font-weight: 400;
+                font-size: 1.2rem;
+            }
+
+            /* -------------------------
+                 MOBILE
+            ------------------------- */
+
+            @media (max-width: 800px) {
+                .hero {
+                    min-height: auto;
+                    padding-top: 35px;
+                }
+
+                .names h1 {
+                    font-size: 3.2rem;
+                }
+
+                .events {
+                    grid-template-columns: 1fr;
+                }
+
+                .event-info {
+                    padding: 32px 22px 26px;
+                }
+
+                .map {
+                    height: 280px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+
+                main {
+                    width: calc(100% - 22px);
+                }
+
+                .names .small {
+                    font-size: 0.7rem;
+                    letter-spacing: 3px;
+                }
+
+                .names h1 {
+                    font-size: 2.8rem;
+                }
+
+                .event-card {
+                    border-radius: 16px;
+                }
+
+                .event-info h3 {
+                    font-size: 1.9rem;
+                }
+
+                .event-time {
+                    font-size: 1.7rem;
+                }
+
+                .map {
+                    height: 250px;
+                }
+            }
+
+            /* -------------------------
+                 FOTOĞRAF PAYLAŞ
+            ------------------------- */
+
+            .photo-share {
+                max-width: 750px;
+                margin: 90px auto 0;
+                padding: 65px 35px;
+                text-align: center;
+                background: linear-gradient(145deg, rgba(255,255,255,0.92), rgba(245,240,233,0.92));
+                border: 1px solid rgba(119, 104, 92, 0.17);
+                border-radius: 28px;
+                box-shadow: 0 20px 50px rgba(55, 45, 37, 0.08);
+            }
+
+            .photo-icon {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+            }
+
+            .photo-small {
+                display: block;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 0.75rem;
+                color: #998b80;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                margin-bottom: 12px;
+            }
+
+            .photo-share h2 {
+                font-size: clamp(2rem, 5vw, 3.1rem);
+                font-weight: 400;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .photo-share p {
+                max-width: 520px;
+                margin: 0 auto 30px;
+                color: #756b64;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .photo-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 15px 30px;
+                background: #2e2925;
+                color: white;
+                border-radius: 100px;
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1rem;
+                font-weight: 500;
+                box-shadow: 0 8px 22px rgba(46, 41, 37, 0.18);
+                transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .photo-button:hover {
+                background: #514841;
+                transform: translateY(-2px);
+                box-shadow: 0 12px 26px rgba(46, 41, 37, 0.22);
+            }
+
+            .photo-note {
+                margin-top: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 0.75rem;
+                color: #9a9088;
+            }
+
+            /* TELEFON */
+            @media (max-width: 600px) {
+                .photo-share {
+                    margin-top: 60px;
+                    padding: 45px 22px;
+                    border-radius: 20px;
+                }
+
+                .photo-share h2 {
+                    font-size: 2rem;
+                }
+
+                .photo-button {
+                    width: 100%;
+                    max-width: 320px;
+                    padding: 16px 20px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- DAVETİYE -->
+        <header class="hero">
+            <div class="names">
+                <span class="small">Düğün Davetiyesi</span>
+                <h1>Zehra & Ribat</h1>
+                <p>Bu mutlu günümüzde sizleri de aramızda görmekten mutluluk duyarız.</p>
+            </div>
+            <!-- Fotoğraf yükleme alanı (üstte) -->
+            <section class="photo-share" id="upload">
+                <div class="photo-icon">📸</div>
+                <span class="photo-small">Anılarımızı Birlikte Biriktirelim</span>
+                <h2>Çektiğiniz Fotoğrafları<br>Bizimle Paylaşın</h2>
+                <p>Bu güzel günümüzde çektiğiniz fotoğrafları bizimle paylaşmanız bizi çok mutlu eder. ♡</p>
+                <a class="photo-button" href="https://forms.gle/d5UbX75KpXtwftgGA" target="_blank" rel="noopener noreferrer">📷 Fotoğraf Yükle</a>
+                <div class="photo-note">Google Form üzerinden güvenli şekilde yüklenir.</div>
+            </section>
+
+            <div class="scroll-hint">
+                Konum bilgileri
+                <span>⌄</span>
+            </div>
+        </header>
+
+        <!-- KONUM -->
+        <main>
+            <section class="events">
+                <!-- KINA -->
+                <article class="event-card">
+                    <div class="event-info">
+                        <span class="event-type">Kına</span>
+                        <h3>Kına Gecesi</h3>
+                        <div class="event-date">25 Ağustos 2026</div>
+                        <div class="event-time">20:00</div>
+                        <div class="separator"></div>
+                        <div class="venue">Aydın</div>
+                        <p class="address">Aydın / Türkiye</p>
+                    </div>
+                    <iframe
+                        class="map"
+                        title="Kına konumu"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=Ayd%C4%B1n&output=embed">
+                    </iframe>
+                    <div class="map-actions">
+                        <a class="map-button" href="https://maps.app.goo.gl/gE5sRkfRG4gSJDSm9" target="_blank" rel="noopener noreferrer">📍 Yol Tarifi Al</a>
+                    </div>
+                </article>
+
+                <!-- NİKAH -->
+                <article class="event-card">
+                    <div class="event-info">
+                        <span class="event-type">Nikah</span>
+                        <h3>Nikah Töreni</h3>
+                        <div class="event-date">29 Ağustos 2026</div>
+                        <div class="event-time">16:20</div>
+                        <div class="separator"></div>
+                        <div class="venue">Eyüp Belediyesi<br>Nikah Salonu ve Kültür Merkezi</div>
+                        <p class="address">Merkez Mah. Silahşör Cad. No:8<br>Eyüpsultan / İstanbul</p>
+                    </div>
+
+                    <iframe
+                        class="map"
+                        title="Nikah konumu"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=Eyup+Belediyesi+Nikah+Salonu+ve+Kultur+Merkezi+Merkez+Mahallesi+Silahsor+Cadde+No+8+Eyupsultan+Istanbul&output=embed">
+                    </iframe>
+
+                    <div class="map-actions">
+                        <a class="map-button" href="https://maps.app.goo.gl/JhP7wefwrq6XwfGZ7" target="_blank" rel="noopener noreferrer">📍 Yol Tarifi Al</a>
+                    </div>
+                </article>
+
+                <!-- DÜĞÜN -->
+                <article class="event-card">
+                    <div class="event-info">
+                        <span class="event-type">Düğün</span>
+                        <h3>Düğün</h3>
+                        <div class="event-date">29 Ağustos 2026</div>
+                        <div class="event-time">18:00</div>
+                        <div class="separator"></div>
+                        <div class="venue">Murtaza Pertek Gemisi<br>Eyüp İskelesi</div>
+                        <p class="address">T5 Feshane Durağı ve İspark yanı<br>Eyüpsultan / İstanbul</p>
+                    </div>
+
+                    <iframe
+                        class="map"
+                        title="Düğün konumu"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=Murtaza+Pertek+Gemisi+Eyup+Iskelesi+Istanbul&output=embed">
+                    </iframe>
+
+                    <div class="map-actions">
+                        <a class="map-button" href="https://maps.app.goo.gl/fkoS1Aomdv2f466EA" target="_blank" rel="noopener noreferrer">📍 Yol Tarifi Al</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- (Fotoğraf paylaş bölümü taşındı -->
+        </main>
+
+        <!-- Davetiye görseli (sayfanın en altına taşındı) -->
+        <div class="invitation-wrapper" style="max-width:720px;margin:40px auto;">
+            <img class="invitation" src="davetiye.jpeg" alt="Düğün Davetiyesi">
+        </div>
+
+        <footer>
+            <span class="heart">♡</span>
+            <strong>Zehra & Ribat</strong>
+            <p>29 Ağustos 2026</p>
+        </footer>
+    </body>
 </html>
